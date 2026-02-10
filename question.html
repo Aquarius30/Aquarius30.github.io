@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey there Natanem!</title>
+    <style>
+                @media (max-width: 600px) {
+                    .container {
+                        padding: 24px 8px;
+                        max-width: 98vw;
+                    }
+                    h1 {
+                        font-size: 1.3rem;
+                    }
+                    p {
+                        font-size: 1rem;
+                    }
+                    .btn {
+                        padding: 12px 8vw;
+                        font-size: 1rem;
+                    }
+                }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #dc143c 60%, #ffb6c1 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .container {
+            background: #fff0f6;
+            border-radius: 20px;
+            box-shadow: 0 6px 24px rgba(220,20,60,0.10);
+            padding: 48px 36px;
+            max-width: 440px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 2px solid #dc143c33;
+        }
+        h1 {
+            color: #dc143c;
+            margin-bottom: 28px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+        p {
+            color: #8b0000;
+            margin-bottom: 36px;
+            font-size: 1.18rem;
+        }
+        .btn {
+            padding: 18px 36px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.15rem;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 2px 8px #dc143c33;
+            transition: background 0.2s, transform 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        .yes {
+            background: #dc143c;
+            color: #fff;
+        }
+        .yes:hover, .yes:focus {
+            background: #fff0f6;
+            color: #dc143c;
+            box-shadow: 0 4px 16px #ffb6c1;
+            transform: scale(1.08) rotate(-2deg);
+        }
+        .no {
+            background: #fff0f6;
+            color: #dc143c;
+            border: 1.5px solid #dc143c;
+        }
+        .no:hover, .no:focus {
+            background: #ffb6c1;
+            color: #b22234;
+            box-shadow: 0 4px 16px #ffb6c1;
+            transform: scale(1.08) rotate(2deg);
+        }
+                }
+                .container:hover {
+                    box-shadow: 0 8px 32px #dc143c55;
+                    border-color: #dc143c;
+                }
+                }
+                h1:hover {
+                    color: #ff69b4;
+                    text-shadow: 0 2px 12px #dc143c55;
+                    cursor: pointer;
+                }
+                }
+                p:hover {
+                    color: #b22234;
+                    background: #ffb6c1;
+                    border-radius: 8px;
+                    transition: background 0.2s, color 0.2s;
+                }
+        .response {
+            margin-top: 28px;
+            font-size: 1.15rem;
+            color: #b22234;
+        }
+        .animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p></p>
+        <h1>Will You, Natanem Merd do me the honor of becoming My Valentine?</h1>
+        <form id="valentineForm">
+            <button type="button" class="btn yes" id="yesBtn" onclick="showResponse('yes')">Yes, I'd love to! ❤️</button>
+            <button type="button" class="btn no" id="noBtn" onclick="showResponse('no')">Sorry, not this time ❌</button>
+        </form>
+        <div class="response" id="responseMsg"></div>
+    </div>
+    <div class="animation" id="animationContainer"></div>
+    <script>
+        let yesBtn = document.getElementById('yesBtn');
+        let noBtn = document.getElementById('noBtn');
+        let responseMsg = document.getElementById('responseMsg');
+        let yesSize = 1;
+        let noSize = 1;
+
+        function showResponse(answer) {
+            if (answer === 'yes') {
+                window.location.href = 'celebrate.html';
+            } else {
+                responseMsg.textContent = "I dont think you have a choice 🙃";
+                yesSize += 0.15;
+                noSize -= 0.15;
+                yesBtn.style.transform = `scale(${yesSize})`;
+                noBtn.style.transform = `scale(${noSize})`;
+            }
+        }
+
+        noBtn.addEventListener('mouseleave', () => {
+            noSize = 1;
+            noBtn.style.transform = '';
+        });
+    </script>
+</body>
+</html>

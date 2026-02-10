@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Celebration!</title>
+    <style>
+                @media (max-width: 600px) {
+                    .container {
+                        padding: 24px 8px;
+                        max-width: 98vw;
+                    }
+                    h1 {
+                        font-size: 1.5rem;
+                    }
+                    p {
+                        font-size: 1rem;
+                    }
+                    .celebrate-btn {
+                        padding: 12px 10vw;
+                        font-size: 1rem;
+                    }
+                }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #dc143c 60%, #ffb6c1 100%);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .container {
+            background: #fff0f6;
+            border-radius: 20px;
+            box-shadow: 0 6px 24px rgba(220,20,60,0.10);
+            padding: 48px 36px;
+            max-width: 480px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 2px solid #dc143c33;
+        }
+        h1 {
+            color: #dc143c;
+            margin-bottom: 18px;
+            font-size: 2.4rem;
+            letter-spacing: 1px;
+        }
+        p {
+            color: #8b0000;
+            margin-bottom: 24px;
+            font-size: 1.25rem;
+        }
+        .celebrate-btn {
+            background: #dc143c;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #dc143c33;
+            margin-top: 18px;
+            transition: background 0.2s, transform 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        .celebrate-btn:hover, .celebrate-btn:focus {
+            background: #fff0f6;
+            color: #dc143c;
+            box-shadow: 0 4px 16px #ffb6c1;
+            transform: scale(1.08) rotate(-2deg);
+        }
+        .container:hover {
+            box-shadow: 0 8px 32px #dc143c55;
+            border-color: #dc143c;
+        }
+        h1:hover {
+            color: #ff69b4;
+            text-shadow: 0 2px 12px #dc143c55;
+            cursor: pointer;
+        }
+        p:hover {
+            color: #b22234;
+            background: #ffb6c1;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .music-controls {
+            margin-top: 24px;
+        }
+        .music-controls button {
+            background: #fff0f6;
+            color: #dc143c;
+            border: 1.5px solid #dc143c;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-size: 1rem;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .music-controls button:hover {
+            background: #ffb6c1;
+        }
+    </style>
+</head>
+<body>
+    <div class="animation" id="animationContainer"></div>
+    <div class="container">
+        <h1>We are Valentines🎉</h1>
+        <h1 id="valentinesTitle">
+        </h1>
+        <p>Yayyyyy..🥳<br>Thank you for saying yes!<br>You are gonna have the best Valentine Day</p>
+        <button class="celebrate-btn" onclick="addMoreHearts()">Add More Hearts & Flowers</button>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        let animationContainer = document.getElementById('animationContainer');
+        let music = document.getElementById('bgMusic');
+        // Autoplay music on load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => { music.volume = 0.7; music.play(); }, 300);
+        });
+
+        // Animation logic
+        function createFloating(type, x = null, y = null) {
+            let el = document.createElement('div');
+            let size = Math.random() * 32 + 28;
+            el.style.position = 'absolute';
+            let startLeft = x !== null ? x : Math.random() * (window.innerWidth - 60);
+            el.style.left = startLeft + 'px';
+            el.style.top = y !== null ? y : '-60px';
+            el.style.fontSize = size + 'px';
+            el.style.opacity = 0.92;
+            el.style.transition = 'transform 7s linear, opacity 7s linear';
+            el.style.pointerEvents = 'none';
+            let rotate = Math.random() * 360;
+            let endLeft = startLeft + (Math.random() - 0.5) * 200;
+            let colorVariants = [
+                '#dc143c', '#b22234', '#ffb6c1', '#ff69b4', '#c71585', '#fff0f6'
+            ];
+            if (type === 'heart') {
+                el.textContent = 'Ur dekama💖';
+                el.style.filter = `drop-shadow(0 0 8px ${colorVariants[Math.floor(Math.random()*3)]})`;
+            } else {
+                el.textContent = '🌸';
+                el.style.filter = `drop-shadow(0 0 8px ${colorVariants[2 + Math.floor(Math.random()*3)]})`;
+            } 
+            
+            el.style.transform = `translateY(0px) rotate(${rotate}deg)`;
+            animationContainer.appendChild(el);
+            setTimeout(() => {
+                el.style.transform = `translateY(${window.innerHeight + 80}px) translateX(${endLeft - startLeft}px) rotate(${rotate + 180}deg)`;
+                el.style.opacity = 0;
+            }, 100);
+            setTimeout(() => {
+                if (el.parentNode) animationContainer.removeChild(el);
+            }, 7000);
+        }
+
+        function loopAnimation() {
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => createFloating('heart'), Math.random() * 1200);
+                setTimeout(() => createFloating('flower'), Math.random() * 1200);
+            }
+            setTimeout(loopAnimation, 1800);
+        }
+        function addMoreHearts() {
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => createFloating(Math.random() > 0.5 ? 'heart' : 'flower'), Math.random() * 1000);
+            }
+        }
+        // Start animation loop on load
+        loopAnimation();
+
+        // Mobile interactions: tap anywhere to add hearts/flowers
+        function isMobile() {
+            return window.innerWidth <= 600 || /Mobi|Android/i.test(navigator.userAgent);
+        }
+        if (isMobile()) {
+            document.body.addEventListener('touchstart', function(e) {
+                let touch = e.touches[0];
+                for (let i = 0; i < 2; i++) {
+                    setTimeout(() => createFloating(Math.random() > 0.5 ? 'heart' : 'flower', touch.clientX, touch.clientY), i * 120);
+                }
+            });
+            // Tap on header for burst
+            let h1 = document.querySelector('h1');
+            if (h1) {
+                h1.addEventListener('touchstart', function(e) {
+                    for (let i = 0; i < 10; i++) {
+                        setTimeout(() => createFloating(Math.random() > 0.5 ? 'heart' : 'flower', window.innerWidth/2, 80), i * 60);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
