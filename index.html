@@ -4,254 +4,610 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Hey There Natanem</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
+        /* =========================
+           BODY
+        ========================= */
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #dc143c 60%, #ffb6c1 100%);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dc143c 60%,
+                    #ffb6c1 100%
+                );
+
             min-height: 100vh;
             margin: 0;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             overflow: hidden;
         }
 
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
         .container {
+
             background: #fff0f6;
+
             border-radius: 20px;
-            box-shadow: 0 6px 24px rgba(220, 20, 60, 0.10);
+
+            box-shadow:
+                0 6px 24px rgba(220,20,60,0.10);
+
             padding: 48px 36px;
+
             width: min(480px, 94vw);
+
             text-align: center;
+
             position: relative;
+
             z-index: 2;
-            border: 2px solid #dc143c33;
+
+            border:
+                2px solid #dc143c33;
+
             transition: 0.3s ease;
         }
 
+
         .container:hover {
-            box-shadow: 0 8px 32px #dc143c55;
-            border-color: #dc143c;
+
+            box-shadow:
+                0 8px 32px #dc143c55;
+
+            border-color:
+                #dc143c;
         }
+
+
+        /* =========================
+           HEADINGS
+        ========================= */
 
         h1 {
+
             color: #dc143c;
+
             margin-bottom: 28px;
+
             font-size: 2.2rem;
+
             letter-spacing: 1px;
+
             transition: 0.2s ease;
         }
+
 
         h1:hover {
+
             color: #ff69b4;
-            text-shadow: 0 2px 12px #dc143c55;
+
+            text-shadow:
+                0 2px 12px #dc143c55;
+
             cursor: pointer;
         }
+
+
+        /* =========================
+           PARAGRAPHS
+        ========================= */
 
         p {
+
             color: #8b0000;
+
             margin-bottom: 30px;
+
             font-size: 1.18rem;
+
             line-height: 1.6;
+
             transition: 0.2s ease;
         }
 
+
         p:hover {
+
             color: #b22234;
-            background: #ffb6c1;
-            border-radius: 8px;
+
+            background:
+                #ffb6c1;
+
+            border-radius:
+                8px;
         }
 
+
+        /* =========================
+           BUTTON BASE
+        ========================= */
+
         button {
+
             font-family: inherit;
+
             cursor: pointer;
         }
 
+
         .btn {
-            padding: 16px 30px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            margin: 8px;
-            box-shadow: 0 2px 8px #dc143c33;
-            transition: 0.2s ease;
+
+            padding:
+                16px 30px;
+
+            border:
+                none;
+
+            border-radius:
+                10px;
+
+            font-size:
+                1.1rem;
+
+            margin:
+                8px;
+
+            box-shadow:
+                0 2px 8px #dc143c33;
+
+            transition:
+                0.2s ease;
         }
+
 
         .btn:hover,
         .btn:focus {
-            transform: scale(1.08);
+
+            transform:
+                scale(1.08);
         }
+
 
         /* =========================
            WELCOME SCREEN
         ========================= */
 
         #welcomeScreen {
-            display: block;
+
+            display:
+                block;
         }
+
 
         .start-btn {
-            background: #dc143c;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: 18px 36px;
-            font-size: 1.15rem;
-            box-shadow: 0 2px 8px #dc143c33;
-            transition: 0.2s ease;
+
+            background:
+                #dc143c;
+
+            color:
+                #fff;
+
+            border:
+                none;
+
+            border-radius:
+                10px;
+
+            padding:
+                18px 36px;
+
+            font-size:
+                1.15rem;
+
+            box-shadow:
+                0 2px 8px #dc143c33;
+
+            transition:
+                0.2s ease;
         }
 
+
         .start-btn:hover {
-            background: #fff0f6;
-            color: #dc143c;
-            box-shadow: 0 4px 16px #ffb6c1;
-            transform: scale(1.08) rotate(-2deg);
+
+            background:
+                #fff0f6;
+
+            color:
+                #dc143c;
+
+            box-shadow:
+                0 4px 16px #ffb6c1;
+
+            transform:
+                scale(1.08)
+                rotate(-2deg);
         }
+
 
         /* =========================
            QUESTION SCREEN
         ========================= */
 
         #questionScreen {
-            display: none;
+
+            display:
+                none;
         }
+
+
+        /* YES */
 
         .yes {
-            background: #dc143c;
-            color: white;
+
+            background:
+                #dc143c;
+
+            color:
+                white;
         }
+
 
         .yes:hover {
-            background: #fff0f6;
-            color: #dc143c;
-            box-shadow: 0 4px 16px #ffb6c1;
+
+            background:
+                #fff0f6;
+
+            color:
+                #dc143c;
+
+            box-shadow:
+                0 4px 16px #ffb6c1;
         }
+
+
+        /* NO */
 
         .no {
-            background: #fff0f6;
-            color: #dc143c;
-            border: 1.5px solid #dc143c;
+
+            background:
+                #fff0f6;
+
+            color:
+                #dc143c;
+
+            border:
+                1.5px solid #dc143c;
         }
+
 
         .no:hover {
-            background: #ffb6c1;
-            color: #b22234;
-            box-shadow: 0 4px 16px #ffb6c1;
+
+            background:
+                #ffb6c1;
+
+            color:
+                #b22234;
+
+            box-shadow:
+                0 4px 16px #ffb6c1;
         }
 
-        /* NEW CLICK HERE INSTEAD BUTTON */
 
-        .instead {
-            background: transparent;
-            color: #8b0000;
-            border: none;
-            box-shadow: none;
-            font-size: 0.95rem;
-            margin-top: 20px;
-            text-decoration: underline;
-        }
-
-        .instead:hover {
-            color: #dc143c;
-            transform: scale(1.05);
-            box-shadow: none;
-            background: transparent;
-        }
+        /* =========================
+           RESPONSE MESSAGE
+        ========================= */
 
         .response {
-            margin-top: 28px;
-            font-size: 1.15rem;
-            color: #b22234;
+
+            margin-top:
+                28px;
+
+            font-size:
+                1.15rem;
+
+            color:
+                #b22234;
         }
+
+
+        /* =========================
+           CLICK HERE INSTEAD
+           NOTIFICATION
+        ========================= */
+
+        .instead {
+
+            position:
+                fixed;
+
+            right:
+                25px;
+
+            bottom:
+                25px;
+
+            background:
+                #fff0f6;
+
+            color:
+                #dc143c;
+
+            border:
+                1.5px solid #dc143c;
+
+            border-radius:
+                14px;
+
+            padding:
+                13px 20px;
+
+            font-size:
+                0.95rem;
+
+            font-weight:
+                600;
+
+            box-shadow:
+                0 4px 18px
+                rgba(220,20,60,0.25);
+
+            z-index:
+                20;
+
+            margin:
+                0;
+
+            animation:
+                notificationAppear
+                0.6s ease,
+                notificationPulse
+                2.5s infinite 1s;
+        }
+
+
+        .instead::before {
+
+            content:
+                "💌";
+
+            margin-right:
+                8px;
+        }
+
+
+        .instead:hover {
+
+            background:
+                #dc143c;
+
+            color:
+                white;
+
+            transform:
+                scale(1.06);
+
+            box-shadow:
+                0 6px 24px
+                rgba(220,20,60,0.4);
+        }
+
+
+        @keyframes notificationAppear {
+
+            from {
+
+                opacity:
+                    0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes notificationPulse {
+
+            0%, 100% {
+
+                box-shadow:
+                    0 4px 18px
+                    rgba(220,20,60,0.25);
+            }
+
+            50% {
+
+                box-shadow:
+                    0 4px 24px
+                    rgba(220,20,60,0.5);
+            }
+        }
+
 
         /* =========================
            MESSAGE SCREEN
         ========================= */
 
         #messageScreen {
-            display: none;
+
+            display:
+                none;
         }
+
 
         #messageScreen h1 {
-            font-size: 2rem;
+
+            font-size:
+                2rem;
         }
 
+
         .message-text {
-            font-size: 1.2rem;
-            color: #8b0000;
-            line-height: 1.8;
+
+            font-size:
+                1.2rem;
+
+            color:
+                #8b0000;
+
+            line-height:
+                1.8;
         }
+
 
         /* =========================
            CELEBRATION SCREEN
         ========================= */
 
         #celebrateScreen {
-            display: none;
+
+            display:
+                none;
         }
+
 
         .celebrate-btn {
-            background: #dc143c;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: 16px 32px;
-            font-size: 1.1rem;
-            margin-top: 18px;
-            box-shadow: 0 2px 8px #dc143c33;
-            transition: 0.2s ease;
+
+            background:
+                #dc143c;
+
+            color:
+                #fff;
+
+            border:
+                none;
+
+            border-radius:
+                10px;
+
+            padding:
+                16px 32px;
+
+            font-size:
+                1.1rem;
+
+            margin-top:
+                18px;
+
+            box-shadow:
+                0 2px 8px #dc143c33;
+
+            transition:
+                0.2s ease;
         }
 
+
         .celebrate-btn:hover {
-            background: #fff0f6;
-            color: #dc143c;
-            box-shadow: 0 4px 16px #ffb6c1;
-            transform: scale(1.08) rotate(-2deg);
+
+            background:
+                #fff0f6;
+
+            color:
+                #dc143c;
+
+            box-shadow:
+                0 4px 16px #ffb6c1;
+
+            transform:
+                scale(1.08)
+                rotate(-2deg);
         }
+
 
         /* =========================
            FLOATING ANIMATION
         ========================= */
 
         .animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
+
+            position:
+                fixed;
+
+            top:
+                0;
+
+            left:
+                0;
+
+            width:
+                100vw;
+
+            height:
+                100vh;
+
+            pointer-events:
+                none;
+
+            z-index:
+                1;
+
+            overflow:
+                hidden;
         }
+
 
         /* =========================
            MUSIC
         ========================= */
 
         .music-controls {
-            margin-top: 24px;
+
+            margin-top:
+                24px;
         }
+
 
         .music-controls button {
-            background: #fff0f6;
-            color: #dc143c;
-            border: 1.5px solid #dc143c;
-            border-radius: 8px;
-            padding: 8px 18px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s ease;
+
+            background:
+                #fff0f6;
+
+            color:
+                #dc143c;
+
+            border:
+                1.5px solid #dc143c;
+
+            border-radius:
+                8px;
+
+            padding:
+                8px 18px;
+
+            font-size:
+                1rem;
+
+            cursor:
+                pointer;
+
+            transition:
+                0.2s ease;
         }
 
+
         .music-controls button:hover {
-            background: #ffb6c1;
+
+            background:
+                #ffb6c1;
         }
+
 
         /* =========================
            MOBILE
@@ -260,191 +616,381 @@
         @media (max-width: 600px) {
 
             .container {
-                padding: 30px 18px;
-                width: 94vw;
+
+                padding:
+                    30px 18px;
+
+                width:
+                    94vw;
             }
+
 
             h1 {
-                font-size: 1.5rem;
+
+                font-size:
+                    1.5rem;
             }
 
+
             p {
-                font-size: 1rem;
+
+                font-size:
+                    1rem;
             }
+
 
             .start-btn,
             .btn,
             .celebrate-btn {
-                padding: 13px 8vw;
-                font-size: 1rem;
+
+                padding:
+                    13px 8vw;
+
+                font-size:
+                    1rem;
             }
+
 
             #messageScreen h1 {
-                font-size: 1.5rem;
+
+                font-size:
+                    1.5rem;
             }
 
+
             .message-text {
-                font-size: 1rem;
+
+                font-size:
+                    1rem;
             }
+
+
+            /* Notification on phones */
+
+            .instead {
+
+                right:
+                    15px;
+
+                bottom:
+                    15px;
+
+                padding:
+                    11px 15px;
+
+                font-size:
+                    0.85rem;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- Floating hearts and flowers -->
-    <div class="animation" id="animationContainer"></div>
+
+    <!-- ==================================================
+         FLOATING HEARTS AND FLOWERS
+    ================================================== -->
+
+    <div
+        class="animation"
+        id="animationContainer">
+    </div>
+
 
 
     <!-- ==================================================
          SCREEN 1 — WELCOME
     ================================================== -->
 
-    <div class="container" id="welcomeScreen">
+    <div
+        class="container"
+        id="welcomeScreen">
 
-        <h1>Hey there À Moi</h1>
+        <h1>
+            Hey there À Moi
+        </h1>
 
         <p>
-            From one Superman to another Batman<br>
+
+            From one Superman to another Batman
+            <br>
+
             Answer choose the right answer if you can...
+
         </p>
 
-        <button class="start-btn" onclick="showQuestion()">
+        <button
+            class="start-btn"
+            onclick="showQuestion()">
+
             Click here if you want to proceed :)
+
         </button>
 
     </div>
+
 
 
     <!-- ==================================================
          SCREEN 2 — VALENTINE QUESTION
     ================================================== -->
 
-    <div class="container" id="questionScreen">
+    <div
+        class="container"
+        id="questionScreen">
 
         <h1>
-            Will You, Natanem Merd do me the honor of becoming My Valentine?
+
+            Will You, Natanem Merd
+            do me the honor of
+            becoming My Valentine?
+
         </h1>
+
 
         <button
             type="button"
             class="btn yes"
             id="yesBtn"
             onclick="showResponse('yes')">
+
             Yes, I'd love to! ❤️
+
         </button>
+
 
         <button
             type="button"
             class="btn no"
             id="noBtn"
             onclick="showResponse('no')">
+
             Sorry, not this time ❌
+
         </button>
 
-        <div class="response" id="responseMsg"></div>
 
-        <!-- NEW BUTTON -->
-
-        <button
-            type="button"
-            class="btn instead"
-            onclick="showMessage()">
-            Click here instead
-        </button>
+        <div
+            class="response"
+            id="responseMsg">
+        </div>
 
     </div>
+
 
 
     <!-- ==================================================
-         SCREEN 3 — NEW MESSAGE
+         CLICK HERE INSTEAD
+         NOTIFICATION
     ================================================== -->
 
-    <div class="container" id="messageScreen">
+    <button
+        type="button"
+        class="btn instead"
+        id="insteadBtn"
+        onclick="showMessage()">
 
-        <h1>Glad u made it upto here</h1>
+        Click here instead
+
+    </button>
+
+
+
+    <!-- ==================================================
+         SCREEN 3 — MESSAGE
+    ================================================== -->
+
+    <div
+        class="container"
+        id="messageScreen">
+
+        <h1>
+
+            Glad u made it upto here
+
+        </h1>
+
 
         <p class="message-text">
-            We are not talking now, but maybe after seeing this
+
+            We are not talking now,
+            but maybe after seeing this
             you might change your mind.
-            <br><br>
+
+            <br>
+            <br>
+
             You know where to reach me.
+
         </p>
 
     </div>
+
 
 
     <!-- ==================================================
          SCREEN 4 — CELEBRATION
     ================================================== -->
 
-    <div class="container" id="celebrateScreen">
+    <div
+        class="container"
+        id="celebrateScreen">
 
-        <h1>We are Valentines🎉</h1>
+        <h1>
+
+            We are Valentines🎉
+
+        </h1>
+
 
         <p>
-            Yayyyyy..🥳<br>
-            Thank you for saying yes!<br>
+
+            Yayyyyy..🥳
+            <br>
+
+            Thank you for saying yes!
+            <br>
+
             You are gonna have the best Valentine Day
+
         </p>
+
 
         <button
             class="celebrate-btn"
             onclick="addMoreHearts()">
+
             Add More Hearts & Flowers
+
         </button>
 
+
         <div class="music-controls">
-            <button onclick="toggleMusic()" id="musicBtn">
+
+            <button
+                onclick="toggleMusic()"
+                id="musicBtn">
+
                 🎵 Play Music
+
             </button>
+
         </div>
 
     </div>
 
 
-    <!-- Music -->
 
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
+    <!-- ==================================================
+         MUSIC
+    ================================================== -->
+
+    <audio
+        id="bgMusic"
+        loop>
+
+        <source
+            src="music.mp3"
+            type="audio/mpeg">
+
+        Your browser does not support
+        the audio element.
+
     </audio>
 
 
+
     <script>
+
 
         /* ==================================================
            ELEMENTS
         ================================================== */
 
         const welcomeScreen =
-            document.getElementById("welcomeScreen");
+            document.getElementById(
+                "welcomeScreen"
+            );
+
 
         const questionScreen =
-            document.getElementById("questionScreen");
+            document.getElementById(
+                "questionScreen"
+            );
+
 
         const messageScreen =
-            document.getElementById("messageScreen");
+            document.getElementById(
+                "messageScreen"
+            );
+
 
         const celebrateScreen =
-            document.getElementById("celebrateScreen");
+            document.getElementById(
+                "celebrateScreen"
+            );
+
 
         const animationContainer =
-            document.getElementById("animationContainer");
+            document.getElementById(
+                "animationContainer"
+            );
+
 
         const music =
-            document.getElementById("bgMusic");
+            document.getElementById(
+                "bgMusic"
+            );
+
 
         const musicBtn =
-            document.getElementById("musicBtn");
+            document.getElementById(
+                "musicBtn"
+            );
+
 
         const yesBtn =
-            document.getElementById("yesBtn");
+            document.getElementById(
+                "yesBtn"
+            );
+
 
         const noBtn =
-            document.getElementById("noBtn");
+            document.getElementById(
+                "noBtn"
+            );
+
 
         const responseMsg =
-            document.getElementById("responseMsg");
+            document.getElementById(
+                "responseMsg"
+            );
+
+
+        const insteadBtn =
+            document.getElementById(
+                "insteadBtn"
+            );
+
+
+
+        /* ==================================================
+           INITIAL STATE
+        ================================================== */
+
+        /*
+         * The notification should NOT
+         * appear on the welcome screen.
+         */
+
+        insteadBtn.style.display =
+            "none";
+
 
 
         /* ==================================================
@@ -453,44 +999,96 @@
 
         function showQuestion() {
 
-            welcomeScreen.style.display = "none";
-            questionScreen.style.display = "block";
-            messageScreen.style.display = "none";
-            celebrateScreen.style.display = "none";
+            welcomeScreen.style.display =
+                "none";
 
+            questionScreen.style.display =
+                "block";
+
+            messageScreen.style.display =
+                "none";
+
+            celebrateScreen.style.display =
+                "none";
+
+
+            /*
+             * Show the notification
+             * immediately when the
+             * question page loads.
+             */
+
+            insteadBtn.style.display =
+                "block";
         }
+
 
 
         function showMessage() {
 
-            welcomeScreen.style.display = "none";
-            questionScreen.style.display = "none";
-            messageScreen.style.display = "block";
-            celebrateScreen.style.display = "none";
+            welcomeScreen.style.display =
+                "none";
 
+            questionScreen.style.display =
+                "none";
+
+            messageScreen.style.display =
+                "block";
+
+            celebrateScreen.style.display =
+                "none";
+
+
+            /*
+             * Remove notification
+             * once she opens the message.
+             */
+
+            insteadBtn.style.display =
+                "none";
         }
+
 
 
         function showCelebration() {
 
-            welcomeScreen.style.display = "none";
-            questionScreen.style.display = "none";
-            messageScreen.style.display = "none";
-            celebrateScreen.style.display = "block";
+            welcomeScreen.style.display =
+                "none";
+
+            questionScreen.style.display =
+                "none";
+
+            messageScreen.style.display =
+                "none";
+
+            celebrateScreen.style.display =
+                "block";
+
+
+            /*
+             * Remove notification
+             */
+
+            insteadBtn.style.display =
+                "none";
+
 
             startCelebration();
-
         }
 
 
+
         /* ==================================================
-           YES / NO
+           YES / NO BUTTONS
         ================================================== */
 
         let yesSize = 1;
+
         let noSize = 1;
 
+
         function showResponse(answer) {
+
 
             if (answer === "yes") {
 
@@ -500,221 +1098,388 @@
             }
 
 
+            /*
+             * NO BUTTON
+             */
+
             responseMsg.textContent =
                 "I dont think you have a choice 🙃";
 
-            yesSize += 0.15;
-            noSize -= 0.15;
+
+            yesSize +=
+                0.15;
+
+
+            noSize -=
+                0.15;
+
 
             if (noSize < 0.3) {
-                noSize = 0.3;
+
+                noSize =
+                    0.3;
             }
+
 
             yesBtn.style.transform =
                 `scale(${yesSize})`;
+
 
             noBtn.style.transform =
                 `scale(${noSize})`;
         }
 
 
-        /* Reset NO button */
 
-        noBtn.addEventListener("mouseleave", () => {
+        /* ==================================================
+           RESET NO BUTTON
+        ================================================== */
 
-            noSize = 1;
-            noBtn.style.transform = "";
+        noBtn.addEventListener(
+            "mouseleave",
+            () => {
 
-        });
+                noSize =
+                    1;
+
+                noBtn.style.transform =
+                    "";
+
+            }
+        );
+
 
 
         /* ==================================================
            FLOATING HEARTS / FLOWERS
         ================================================== */
 
-        function createFloating(type, x = null, y = null) {
+        function createFloating(
+            type,
+            x = null,
+            y = null
+        ) {
 
-            const el = document.createElement("div");
+
+            const el =
+                document.createElement(
+                    "div"
+                );
+
 
             const size =
-                Math.random() * 32 + 28;
+                Math.random() *
+                32 +
+                28;
 
-            el.style.position = "absolute";
+
+            el.style.position =
+                "absolute";
+
 
             const startLeft =
                 x !== null
                     ? x
                     : Math.random() *
-                      (window.innerWidth - 60);
+                      (
+                          window.innerWidth -
+                          60
+                      );
 
-            el.style.left = startLeft + "px";
+
+            el.style.left =
+                startLeft +
+                "px";
+
 
             el.style.top =
                 y !== null
                     ? y + "px"
                     : "-60px";
 
-            el.style.fontSize =
-                size + "px";
 
-            el.style.opacity = "0.92";
+            el.style.fontSize =
+                size +
+                "px";
+
+
+            el.style.opacity =
+                "0.92";
+
 
             el.style.transition =
                 "transform 7s linear, opacity 7s linear";
 
-            el.style.pointerEvents = "none";
+
+            el.style.pointerEvents =
+                "none";
+
 
             const rotate =
-                Math.random() * 360;
+                Math.random() *
+                360;
+
 
             const endLeft =
                 startLeft +
-                (Math.random() - 0.5) * 200;
+                (
+                    Math.random() -
+                    0.5
+                ) *
+                200;
 
 
             const colorVariants = [
+
                 "#dc143c",
                 "#b22234",
                 "#ffb6c1",
                 "#ff69b4",
                 "#c71585",
                 "#fff0f6"
+
             ];
 
 
             if (type === "heart") {
 
-                el.textContent = "Ur dekama💖";
+                el.textContent =
+                    "Ur dekama💖";
+
 
                 el.style.filter =
-                    `drop-shadow(0 0 8px ${
-                        colorVariants[
-                            Math.floor(Math.random() * 3)
-                        ]
-                    })`;
+                    `drop-shadow(
+                        0 0 8px
+                        ${
+                            colorVariants[
+                                Math.floor(
+                                    Math.random() * 3
+                                )
+                            ]
+                        }
+                    )`;
 
-            } else {
+            }
 
-                el.textContent = "🌸";
+            else {
+
+                el.textContent =
+                    "🌸";
+
 
                 el.style.filter =
-                    `drop-shadow(0 0 8px ${
-                        colorVariants[
-                            2 + Math.floor(Math.random() * 3)
-                        ]
-                    })`;
+                    `drop-shadow(
+                        0 0 8px
+                        ${
+                            colorVariants[
+                                2 +
+                                Math.floor(
+                                    Math.random() * 3
+                                )
+                            ]
+                        }
+                    )`;
             }
 
 
             el.style.transform =
-                `translateY(0px) rotate(${rotate}deg)`;
+                `translateY(0px)
+                 rotate(${rotate}deg)`;
 
 
-            animationContainer.appendChild(el);
+            animationContainer.appendChild(
+                el
+            );
 
 
-            setTimeout(() => {
+            setTimeout(
+                () => {
 
-                el.style.transform =
-                    `translateY(${
-                        window.innerHeight + 80
-                    }px)
-                     translateX(${
-                        endLeft - startLeft
-                    }px)
-                     rotate(${rotate + 180}deg)`;
+                    el.style.transform =
+                        `translateY(
+                            ${
+                                window.innerHeight +
+                                80
+                            }px
+                        )
+                        translateX(
+                            ${
+                                endLeft -
+                                startLeft
+                            }px
+                        )
+                        rotate(
+                            ${
+                                rotate +
+                                180
+                            }deg
+                        )`;
 
-                el.style.opacity = "0";
 
-            }, 100);
+                    el.style.opacity =
+                        "0";
+
+                },
+
+                100
+            );
 
 
-            setTimeout(() => {
+            setTimeout(
+                () => {
 
-                if (el.parentNode) {
-                    el.parentNode.removeChild(el);
-                }
+                    if (el.parentNode) {
 
-            }, 7000);
+                        el.parentNode
+                            .removeChild(
+                                el
+                            );
+                    }
+
+                },
+
+                7000
+            );
+
         }
+
 
 
         /* ==================================================
            CELEBRATION
         ================================================== */
 
-        let celebrationStarted = false;
+        let celebrationStarted =
+            false;
+
 
 
         function startCelebration() {
 
-            if (celebrationStarted) return;
+            if (
+                celebrationStarted
+            ) {
 
-            celebrationStarted = true;
+                return;
+            }
+
+
+            celebrationStarted =
+                true;
+
 
             loopAnimation();
 
-            music.volume = 0.7;
+
+            music.volume =
+                0.7;
+
 
             music.play()
-                .then(() => {
 
-                    musicBtn.textContent =
-                        "🔇 Pause Music";
+                .then(
+                    () => {
 
-                })
-                .catch(() => {
+                        musicBtn.textContent =
+                            "🔇 Pause Music";
 
-                    musicBtn.textContent =
-                        "🎵 Play Music";
+                    }
+                )
 
-                });
+                .catch(
+                    () => {
+
+                        musicBtn.textContent =
+                            "🎵 Play Music";
+
+                    }
+                );
         }
+
 
 
         function loopAnimation() {
 
-            for (let i = 0; i < 8; i++) {
 
-                setTimeout(() => {
+            for (
+                let i = 0;
+                i < 8;
+                i++
+            ) {
 
-                    createFloating("heart");
 
-                }, Math.random() * 1200);
+                setTimeout(
+                    () => {
+
+                        createFloating(
+                            "heart"
+                        );
+
+                    },
+
+                    Math.random() *
+                    1200
+                );
 
 
-                setTimeout(() => {
+                setTimeout(
+                    () => {
 
-                    createFloating("flower");
+                        createFloating(
+                            "flower"
+                        );
 
-                }, Math.random() * 1200);
+                    },
+
+                    Math.random() *
+                    1200
+                );
 
             }
 
 
-            setTimeout(loopAnimation, 1800);
+            setTimeout(
+                loopAnimation,
+                1800
+            );
         }
 
 
+
         /* ==================================================
-           MORE HEARTS
+           ADD MORE HEARTS
         ================================================== */
 
         function addMoreHearts() {
 
-            for (let i = 0; i < 12; i++) {
 
-                setTimeout(() => {
+            for (
+                let i = 0;
+                i < 12;
+                i++
+            ) {
 
-                    createFloating(
-                        Math.random() > 0.5
-                            ? "heart"
-                            : "flower"
-                    );
 
-                }, Math.random() * 1000);
+                setTimeout(
+                    () => {
+
+                        createFloating(
+
+                            Math.random() >
+                            0.5
+                                ? "heart"
+                                : "flower"
+
+                        );
+
+                    },
+
+                    Math.random() *
+                    1000
+                );
             }
         }
+
 
 
         /* ==================================================
@@ -723,21 +1488,32 @@
 
         function toggleMusic() {
 
-            if (music.paused) {
+
+            if (
+                music.paused
+            ) {
+
 
                 music.play();
+
 
                 musicBtn.textContent =
                     "🔇 Pause Music";
 
-            } else {
+            }
+
+            else {
+
 
                 music.pause();
+
 
                 musicBtn.textContent =
                     "🎵 Play Music";
             }
+
         }
+
 
 
         /* ==================================================
@@ -747,24 +1523,43 @@
         function isMobile() {
 
             return (
-                window.innerWidth <= 600 ||
+
+                window.innerWidth <=
+                600 ||
+
                 /Mobi|Android/i.test(
                     navigator.userAgent
                 )
+
             );
         }
 
 
-        if (isMobile()) {
+
+        if (
+            isMobile()
+        ) {
+
 
             document.body.addEventListener(
                 "touchstart",
                 function(e) {
 
+
+                    /*
+                     * Only create hearts
+                     * during celebration.
+                     */
+
                     if (
-                        celebrateScreen.style.display !==
+
+                        celebrateScreen
+                            .style
+                            .display !==
                         "block"
+
                     ) {
+
                         return;
                     }
 
@@ -773,24 +1568,44 @@
                         e.touches[0];
 
 
-                    for (let i = 0; i < 2; i++) {
+                    for (
+                        let i = 0;
+                        i < 2;
+                        i++
+                    ) {
 
-                        setTimeout(() => {
 
-                            createFloating(
-                                Math.random() > 0.5
-                                    ? "heart"
-                                    : "flower",
-                                touch.clientX,
-                                touch.clientY
-                            );
+                        setTimeout(
+                            () => {
 
-                        }, i * 120);
+                                createFloating(
+
+                                    Math.random() >
+                                    0.5
+                                        ? "heart"
+                                        : "flower",
+
+                                    touch.clientX,
+
+                                    touch.clientY
+
+                                );
+
+                            },
+
+                            i * 120
+                        );
+
                     }
 
                 }
             );
 
+
+            /*
+             * Tap celebration
+             * heading for burst.
+             */
 
             celebrateScreen
                 .querySelector("h1")
@@ -798,23 +1613,41 @@
                     "touchstart",
                     function() {
 
-                        for (let i = 0; i < 10; i++) {
 
-                            setTimeout(() => {
+                        for (
+                            let i = 0;
+                            i < 10;
+                            i++
+                        ) {
 
-                                createFloating(
-                                    Math.random() > 0.5
-                                        ? "heart"
-                                        : "flower",
-                                    window.innerWidth / 2,
-                                    80
-                                );
 
-                            }, i * 60);
+                            setTimeout(
+                                () => {
+
+                                    createFloating(
+
+                                        Math.random() >
+                                        0.5
+                                            ? "heart"
+                                            : "flower",
+
+                                        window.innerWidth /
+                                        2,
+
+                                        80
+
+                                    );
+
+                                },
+
+                                i * 60
+                            );
+
                         }
 
                     }
                 );
+
         }
 
     </script>
