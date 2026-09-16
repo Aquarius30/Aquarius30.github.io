@@ -13,10 +13,6 @@
             box-sizing: border-box;
         }
 
-        /* =========================
-           BODY
-        ========================= */
-
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
 
@@ -43,7 +39,6 @@
         ========================= */
 
         .container {
-
             background: #fff0f6;
 
             border-radius: 20px;
@@ -69,7 +64,6 @@
 
 
         .container:hover {
-
             box-shadow:
                 0 8px 32px #dc143c55;
 
@@ -83,7 +77,6 @@
         ========================= */
 
         h1 {
-
             color: #dc143c;
 
             margin-bottom: 28px;
@@ -97,7 +90,6 @@
 
 
         h1:hover {
-
             color: #ff69b4;
 
             text-shadow:
@@ -112,7 +104,6 @@
         ========================= */
 
         p {
-
             color: #8b0000;
 
             margin-bottom: 30px;
@@ -126,7 +117,6 @@
 
 
         p:hover {
-
             color: #b22234;
 
             background:
@@ -137,64 +127,17 @@
         }
 
 
-        /* =========================
-           BUTTON BASE
-        ========================= */
-
         button {
-
             font-family: inherit;
-
             cursor: pointer;
         }
 
 
-        .btn {
-
-            padding:
-                16px 30px;
-
-            border:
-                none;
-
-            border-radius:
-                10px;
-
-            font-size:
-                1.1rem;
-
-            margin:
-                8px;
-
-            box-shadow:
-                0 2px 8px #dc143c33;
-
-            transition:
-                0.2s ease;
-        }
-
-
-        .btn:hover,
-        .btn:focus {
-
-            transform:
-                scale(1.08);
-        }
-
-
         /* =========================
-           WELCOME SCREEN
+           START BUTTON
         ========================= */
 
-        #welcomeScreen {
-
-            display:
-                block;
-        }
-
-
         .start-btn {
-
             background:
                 #dc143c;
 
@@ -222,7 +165,6 @@
 
 
         .start-btn:hover {
-
             background:
                 #fff0f6;
 
@@ -243,16 +185,43 @@
         ========================= */
 
         #questionScreen {
-
             display:
                 none;
         }
 
 
-        /* YES */
+        .btn {
+            padding:
+                16px 30px;
+
+            border:
+                none;
+
+            border-radius:
+                10px;
+
+            font-size:
+                1.1rem;
+
+            margin:
+                8px;
+
+            box-shadow:
+                0 2px 8px #dc143c33;
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .btn:hover,
+        .btn:focus {
+            transform:
+                scale(1.08);
+        }
+
 
         .yes {
-
             background:
                 #dc143c;
 
@@ -262,7 +231,6 @@
 
 
         .yes:hover {
-
             background:
                 #fff0f6;
 
@@ -274,10 +242,7 @@
         }
 
 
-        /* NO */
-
         .no {
-
             background:
                 #fff0f6;
 
@@ -290,7 +255,6 @@
 
 
         .no:hover {
-
             background:
                 #ffb6c1;
 
@@ -302,12 +266,7 @@
         }
 
 
-        /* =========================
-           RESPONSE MESSAGE
-        ========================= */
-
         .response {
-
             margin-top:
                 28px;
 
@@ -321,11 +280,10 @@
 
         /* =========================
            CLICK HERE INSTEAD
-           NOTIFICATION
+           FRONT PAGE NOTIFICATION
         ========================= */
 
         .instead {
-
             position:
                 fixed;
 
@@ -375,7 +333,6 @@
 
 
         .instead::before {
-
             content:
                 "💌";
 
@@ -385,7 +342,6 @@
 
 
         .instead:hover {
-
             background:
                 #dc143c;
 
@@ -404,7 +360,6 @@
         @keyframes notificationAppear {
 
             from {
-
                 opacity:
                     0;
 
@@ -413,7 +368,6 @@
             }
 
             to {
-
                 opacity:
                     1;
 
@@ -426,14 +380,12 @@
         @keyframes notificationPulse {
 
             0%, 100% {
-
                 box-shadow:
                     0 4px 18px
                     rgba(220,20,60,0.25);
             }
 
             50% {
-
                 box-shadow:
                     0 4px 24px
                     rgba(220,20,60,0.5);
@@ -446,21 +398,18 @@
         ========================= */
 
         #messageScreen {
-
             display:
                 none;
         }
 
 
         #messageScreen h1 {
-
             font-size:
                 2rem;
         }
 
 
         .message-text {
-
             font-size:
                 1.2rem;
 
@@ -477,14 +426,12 @@
         ========================= */
 
         #celebrateScreen {
-
             display:
                 none;
         }
 
 
         .celebrate-btn {
-
             background:
                 #dc143c;
 
@@ -515,7 +462,6 @@
 
 
         .celebrate-btn:hover {
-
             background:
                 #fff0f6;
 
@@ -536,7 +482,6 @@
         ========================= */
 
         .animation {
-
             position:
                 fixed;
 
@@ -568,14 +513,12 @@
         ========================= */
 
         .music-controls {
-
             margin-top:
                 24px;
         }
 
 
         .music-controls button {
-
             background:
                 #fff0f6;
 
@@ -603,7 +546,6 @@
 
 
         .music-controls button:hover {
-
             background:
                 #ffb6c1;
         }
@@ -616,7 +558,6 @@
         @media (max-width: 600px) {
 
             .container {
-
                 padding:
                     30px 18px;
 
@@ -626,14 +567,12 @@
 
 
             h1 {
-
                 font-size:
                     1.5rem;
             }
 
 
             p {
-
                 font-size:
                     1rem;
             }
@@ -642,7 +581,6 @@
             .start-btn,
             .btn,
             .celebrate-btn {
-
                 padding:
                     13px 8vw;
 
@@ -652,23 +590,18 @@
 
 
             #messageScreen h1 {
-
                 font-size:
                     1.5rem;
             }
 
 
             .message-text {
-
                 font-size:
                     1rem;
             }
 
 
-            /* Notification on phones */
-
             .instead {
-
                 right:
                     15px;
 
@@ -693,7 +626,7 @@
 
 
     <!-- ==================================================
-         FLOATING HEARTS AND FLOWERS
+         FLOATING ANIMATION
     ================================================== -->
 
     <div
@@ -704,7 +637,7 @@
 
 
     <!-- ==================================================
-         SCREEN 1 — WELCOME
+         SCREEN 1 — FRONT PAGE
     ================================================== -->
 
     <div
@@ -724,6 +657,7 @@
 
         </p>
 
+
         <button
             class="start-btn"
             onclick="showQuestion()">
@@ -733,6 +667,23 @@
         </button>
 
     </div>
+
+
+
+    <!-- ==================================================
+         CLICK HERE INSTEAD
+         THIS IS NOW ON THE FRONT PAGE
+    ================================================== -->
+
+    <button
+        type="button"
+        class="instead"
+        id="insteadBtn"
+        onclick="showMessage()">
+
+        Click here instead
+
+    </button>
 
 
 
@@ -785,24 +736,7 @@
 
 
     <!-- ==================================================
-         CLICK HERE INSTEAD
-         NOTIFICATION
-    ================================================== -->
-
-    <button
-        type="button"
-        class="btn instead"
-        id="insteadBtn"
-        onclick="showMessage()">
-
-        Click here instead
-
-    </button>
-
-
-
-    <!-- ==================================================
-         SCREEN 3 — MESSAGE
+         SCREEN 3 — PERSONAL MESSAGE
     ================================================== -->
 
     <div
@@ -984,12 +918,12 @@
         ================================================== */
 
         /*
-         * The notification should NOT
-         * appear on the welcome screen.
+         * The notification is visible
+         * immediately on the FRONT PAGE.
          */
 
         insteadBtn.style.display =
-            "none";
+            "block";
 
 
 
@@ -1013,13 +947,12 @@
 
 
             /*
-             * Show the notification
-             * immediately when the
-             * question page loads.
+             * Hide the notification once
+             * she enters the question.
              */
 
             insteadBtn.style.display =
-                "block";
+                "none";
         }
 
 
@@ -1040,8 +973,7 @@
 
 
             /*
-             * Remove notification
-             * once she opens the message.
+             * Hide the notification.
              */
 
             insteadBtn.style.display =
@@ -1065,10 +997,6 @@
                 "block";
 
 
-            /*
-             * Remove notification
-             */
-
             insteadBtn.style.display =
                 "none";
 
@@ -1079,7 +1007,7 @@
 
 
         /* ==================================================
-           YES / NO BUTTONS
+           YES / NO
         ================================================== */
 
         let yesSize = 1;
@@ -1097,10 +1025,6 @@
                 return;
             }
 
-
-            /*
-             * NO BUTTON
-             */
 
             responseMsg.textContent =
                 "I dont think you have a choice 🙃";
@@ -1127,6 +1051,7 @@
 
             noBtn.style.transform =
                 `scale(${noSize})`;
+
         }
 
 
@@ -1353,7 +1278,6 @@
             false;
 
 
-
         function startCelebration() {
 
             if (
@@ -1442,12 +1366,13 @@
                 loopAnimation,
                 1800
             );
+
         }
 
 
 
         /* ==================================================
-           ADD MORE HEARTS
+           MORE HEARTS
         ================================================== */
 
         function addMoreHearts() {
@@ -1477,7 +1402,9 @@
                     Math.random() *
                     1000
                 );
+
             }
+
         }
 
 
@@ -1546,11 +1473,6 @@
                 function(e) {
 
 
-                    /*
-                     * Only create hearts
-                     * during celebration.
-                     */
-
                     if (
 
                         celebrateScreen
@@ -1601,11 +1523,6 @@
                 }
             );
 
-
-            /*
-             * Tap celebration
-             * heading for burst.
-             */
 
             celebrateScreen
                 .querySelector("h1")
