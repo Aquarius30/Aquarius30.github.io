@@ -145,10 +145,47 @@
             box-shadow: 0 4px 16px #ffb6c1;
         }
 
+        /* NEW CLICK HERE INSTEAD BUTTON */
+
+        .instead {
+            background: transparent;
+            color: #8b0000;
+            border: none;
+            box-shadow: none;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            text-decoration: underline;
+        }
+
+        .instead:hover {
+            color: #dc143c;
+            transform: scale(1.05);
+            box-shadow: none;
+            background: transparent;
+        }
+
         .response {
             margin-top: 28px;
             font-size: 1.15rem;
             color: #b22234;
+        }
+
+        /* =========================
+           MESSAGE SCREEN
+        ========================= */
+
+        #messageScreen {
+            display: none;
+        }
+
+        #messageScreen h1 {
+            font-size: 2rem;
+        }
+
+        .message-text {
+            font-size: 1.2rem;
+            color: #8b0000;
+            line-height: 1.8;
         }
 
         /* =========================
@@ -241,6 +278,14 @@
                 padding: 13px 8vw;
                 font-size: 1rem;
             }
+
+            #messageScreen h1 {
+                font-size: 1.5rem;
+            }
+
+            .message-text {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -299,11 +344,38 @@
 
         <div class="response" id="responseMsg"></div>
 
+        <!-- NEW BUTTON -->
+
+        <button
+            type="button"
+            class="btn instead"
+            onclick="showMessage()">
+            Click here instead
+        </button>
+
     </div>
 
 
     <!-- ==================================================
-         SCREEN 3 — CELEBRATION
+         SCREEN 3 — NEW MESSAGE
+    ================================================== -->
+
+    <div class="container" id="messageScreen">
+
+        <h1>Glad u made it upto here</h1>
+
+        <p class="message-text">
+            We are not talking now, but maybe after seeing this
+            you might change your mind.
+            <br><br>
+            You know where to reach me.
+        </p>
+
+    </div>
+
+
+    <!-- ==================================================
+         SCREEN 4 — CELEBRATION
     ================================================== -->
 
     <div class="container" id="celebrateScreen">
@@ -332,6 +404,7 @@
 
 
     <!-- Music -->
+
     <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
@@ -348,6 +421,9 @@
 
         const questionScreen =
             document.getElementById("questionScreen");
+
+        const messageScreen =
+            document.getElementById("messageScreen");
 
         const celebrateScreen =
             document.getElementById("celebrateScreen");
@@ -379,13 +455,27 @@
 
             welcomeScreen.style.display = "none";
             questionScreen.style.display = "block";
+            messageScreen.style.display = "none";
+            celebrateScreen.style.display = "none";
+
+        }
+
+
+        function showMessage() {
+
+            welcomeScreen.style.display = "none";
+            questionScreen.style.display = "none";
+            messageScreen.style.display = "block";
+            celebrateScreen.style.display = "none";
 
         }
 
 
         function showCelebration() {
 
+            welcomeScreen.style.display = "none";
             questionScreen.style.display = "none";
+            messageScreen.style.display = "none";
             celebrateScreen.style.display = "block";
 
             startCelebration();
@@ -410,8 +500,6 @@
             }
 
 
-            /* NO BUTTON */
-
             responseMsg.textContent =
                 "I dont think you have a choice 🙃";
 
@@ -430,12 +518,11 @@
         }
 
 
-        /* Reset NO button when mouse leaves */
+        /* Reset NO button */
 
         noBtn.addEventListener("mouseleave", () => {
 
             noSize = 1;
-
             noBtn.style.transform = "";
 
         });
@@ -553,7 +640,7 @@
 
 
         /* ==================================================
-           CONTINUOUS CELEBRATION
+           CELEBRATION
         ================================================== */
 
         let celebrationStarted = false;
@@ -567,16 +654,20 @@
 
             loopAnimation();
 
-            /* Try to start music */
-
             music.volume = 0.7;
 
             music.play()
                 .then(() => {
-                    musicBtn.textContent = "🔇 Pause Music";
+
+                    musicBtn.textContent =
+                        "🔇 Pause Music";
+
                 })
                 .catch(() => {
-                    musicBtn.textContent = "🎵 Play Music";
+
+                    musicBtn.textContent =
+                        "🎵 Play Music";
+
                 });
         }
 
@@ -606,7 +697,7 @@
 
 
         /* ==================================================
-           ADD MORE HEARTS
+           MORE HEARTS
         ================================================== */
 
         function addMoreHearts() {
@@ -670,11 +761,6 @@
                 "touchstart",
                 function(e) {
 
-                    /*
-                     * Only create floating elements
-                     * after reaching celebration.
-                     */
-
                     if (
                         celebrateScreen.style.display !==
                         "block"
@@ -705,8 +791,6 @@
                 }
             );
 
-
-            /* Tap celebration heading for burst */
 
             celebrateScreen
                 .querySelector("h1")
